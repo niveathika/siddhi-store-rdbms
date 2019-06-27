@@ -22,7 +22,7 @@ install: true
 jobs:
   include:
     - stage: compile
-      name: compile
+      name: H2 & OSGi
       before_script:
         - cd ..
         - git clone https://github.com/niveathika/siddhi.git
@@ -31,10 +31,7 @@ jobs:
         - mvn clean install -DskipTests
         - cd ../siddhi-store-rdbms
       script:
-        - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-    - stage: test
-      name: H2
-      script: mvn verify -P local-h2 -f component/pom.xml -Dskip.surefire.test=true -Ddocker.removeVolumes=true
+        - mvn clean install -Dmaven.javadoc.skip=true -V
     - stage: test
       name: MySQL
       script: mvn verify -P local-mysql -f component/pom.xml -Dskip.surefire.test=true -Ddocker.removeVolumes=true
@@ -45,11 +42,15 @@ jobs:
       name: postgres
       script: mvn verify -P local-postgres -f component/pom.xml -Dskip.surefire.test=true -Ddocker.removeVolumes=true
     - stage: test
-      name: OSGi-test
+      name: Oracle 11
       before_script:
-        - cd tests/osgi-tests/
-      script: mvn verify
-
+        - docker login -u niveathika -p $DOCKER_PWD
+      script: mvn verify -P local-oracle -f component/pom.xml -Dskip.surefire.test=true -Ddocker.removeVolumes=true
+    - stage: test
+      name: Oracle 12
+      before_script:
+        - docker login -u niveathika -p $DOCKER_PWD
+      script: mvn verify -P local-oracle12 -f component/pom.xml -Dskip.surefire.test=true -Ddocker.removeVolumes=true
 cache:
   bundler: true
   directories:

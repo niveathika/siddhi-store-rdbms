@@ -1016,7 +1016,7 @@
                             <images>
                                 <image>
                                     <alias>siddhi-rdbms-oracle</alias>
-                                    <name>oracle/database:11.2.0.2-xe</name>
+                                    <name>niveathika/testora:11</name>
                                     <run>
                                         <namingStrategy>alias</namingStrategy>
                                         <env>
@@ -1184,7 +1184,7 @@
                             <images>
                                 <image>
                                     <alias>siddhi-rdbms-oracle12</alias>
-                                    <name>oracle/database:12.1.0.2-se2</name>
+                                    <name>niveathika/testora:12</name>
                                     <run>
                                         <namingStrategy>alias</namingStrategy>
                                         <env>
