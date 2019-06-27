@@ -23,6 +23,13 @@ jobs:
   include:
     - stage: compile
       name: compile
+      before_script:
+        - cd ..
+        - git clone https://github.com/niveathika/siddhi.git
+        - cd siddhi
+        - git checkout -t origin/4.x.x
+        - mvn clean install -DskipTests
+        - cd ../siddhi-store-rdbms
       script:
         - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
     - stage: test
