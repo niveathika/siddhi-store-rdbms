@@ -135,7 +135,7 @@ public class ReadEventRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 2, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 1, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
     }
@@ -149,7 +149,7 @@ public class ReadEventRDBMSTableTestCaseIT {
 
         String query =
                 "@info(name = 'query1')\n" +
-                        "from FooStream#window.length(1) join StockTable on FooStream.name==StockTable.itemId \n" +
+                        "from FooStream join StockTable on FooStream.name==StockTable.itemId \n" +
                         "select FooStream.name as checkName, StockTable.type as checkCategory, " +
                         "StockTable.volume as checkVolume\n" +
                         "insert into OutputStream;";
@@ -504,7 +504,7 @@ public class ReadEventRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 1, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 1, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
         siddhiAppRuntime2.shutdown();
@@ -580,7 +580,7 @@ public class ReadEventRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 1, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 1, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
         siddhiAppRuntime2.shutdown();
@@ -614,13 +614,13 @@ public class ReadEventRDBMSTableTestCaseIT {
                 "insert into StockTable;\n";
         String query2 = "" +
                 "@info(name = 'query2')\n" +
-                "from SecondStream join StockTable on columnName == column1 and volume == column4 " +
+                "from SecondStream#window.length(1) join StockTable on columnName == column1 and volume == column4 " +
                 "and isValid == column5\n" +
                 "select columnName, (volume + 4 ) as volume, isValid\n" +
                 "insert into OutputStream;\n" +
 
                 "@info(name = 'query3')\n" +
-                "from ThirdStream join StockTable on columnName == column1 " +
+                "from ThirdStream#window.length(1) join StockTable on columnName == column1 " +
                 "select columnName, volume, isValid\n" +
                 "insert into OutputStream;\n";
 

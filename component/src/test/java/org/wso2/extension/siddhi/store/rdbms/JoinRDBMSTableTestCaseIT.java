@@ -732,7 +732,7 @@ public class JoinRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 2, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 1, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
     }
@@ -801,7 +801,7 @@ public class JoinRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 1, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 1, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
     }
@@ -873,7 +873,7 @@ public class JoinRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 2, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 1, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
     }
@@ -945,7 +945,7 @@ public class JoinRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 2, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 2, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
     }
@@ -1019,7 +1019,7 @@ public class JoinRDBMSTableTestCaseIT {
         Thread.sleep(1000);
 
         Assert.assertEquals(inEventCount, 2, "Number of success events");
-        Assert.assertEquals(removeEventCount, 0, "Number of remove events");
+        Assert.assertEquals(removeEventCount, 2, "Number of remove events");
         Assert.assertEquals(eventArrived, true, "Event arrived");
         siddhiAppRuntime.shutdown();
     }
