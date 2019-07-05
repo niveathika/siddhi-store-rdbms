@@ -2095,7 +2095,7 @@ public class RDBMSEventTable extends AbstractQueryableRecordTable {
                     maxOrdinal = ordinal;
                 }
             }
-            offset = maxOrdinal;
+            offset = offset + maxOrdinal;
         }
 
         if (compiledSelectionList.length() > 0) {
@@ -2136,7 +2136,7 @@ public class RDBMSEventTable extends AbstractQueryableRecordTable {
                     maxOrdinal = ordinal;
                 }
             }
-            offset = maxOrdinal;
+            offset = offset + maxOrdinal;
         }
 
         if (compiledSelectionList.length() > 0) {
@@ -2172,7 +2172,7 @@ public class RDBMSEventTable extends AbstractQueryableRecordTable {
                     maxOrdinal = ordinal;
                 }
             }
-            offset = maxOrdinal;
+            offset = offset + maxOrdinal;
         }
 
         if (compiledSelectionList.length() > 0) {
