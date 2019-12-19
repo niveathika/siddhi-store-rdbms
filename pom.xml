@@ -27,7 +27,7 @@
 
     <groupId>io.siddhi.extension.store.rdbms</groupId>
     <artifactId>siddhi-store-rdbms-parent</artifactId>
-    <version>7.0.5-SNAPSHOT</version>
+    <version>7.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WSO2 Siddhi Store Extension - RDBMS Aggregator Pom</name>
     <url>http://wso2.org</url>
@@ -48,7 +48,8 @@
 
     <properties>
         <io.siddhi.runner.version>5.1.0</io.siddhi.runner.version>
-        <siddhi.version>5.1.8-SNAPSHOT</siddhi.version>
+        <siddhi.version>5.1.12-SNAPSHOT</siddhi.version>
+        <siddhi.bundle.version>5.1.12.SNAPSHOT</siddhi.bundle.version>
         <siddhi.version.range>[5.0.0, 6.0.0)</siddhi.version.range>
         <carbon.analytics.common.version>6.1.32</carbon.analytics.common.version>
         <siddhi.execution.string.version>5.0.5</siddhi.execution.string.version>
